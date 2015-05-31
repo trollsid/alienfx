@@ -137,14 +137,33 @@ AlienFxLights_t LightsAurora[] = {
 	{ 0x002, "top-right"  ,0 }, // R4-ALX top lighting (one side) under air flaps
 	{ 0x004, "top-left"   ,0 }, // R4-ALX top lighting (one side)  under air flaps
 	{ 0x008, "front"      ,0 }, // below alien head
+        { 0x010, "door" ,0 }, // R4-ALX inside of door (one side)
 	{ 0x020, "door-right" ,0 }, // R4-ALX inside of door (one side)
 	{ 0x040, "door-left"  ,0 }, // R4-ALX inside of door (one side)
 	{ 0x080, "right"      ,0 }, // lower side panel
 	{ 0x100, "left"       ,0 }, // lower side panel
-	{ 0x180, "sides"      ,1 }, // lower side panels
+        { 0x180, "sides"      ,1 }, // loAlienware AW1517wer side panels
 	{ 0xffe, "panels"     ,1 }, // everything but the alien head
-	{ 0xfff, "all"        ,1 }, // 0x189 for normal, 0x1ef for ALX
+        { 0xfff, "all"        ,1 }, // 0x189 for normal, 0x1ef for ALX
 };
+
+AlienFxLights_t AW1517[] =
+{
+    { 0x0001, "keyboard-right"      ,0 },
+    { 0x0002, "keyboard-middleright",0 },
+    { 0x0004, "keyboard-left"       ,0 },
+    { 0x0008, "keyboard-middleleft" ,0 },
+    { 0x0020, "lid"                 ,0 },
+    { 0x0040, "name"                ,0 },
+    { 0x0080, "activity"            ,0},
+    { 0x0400, "touchpad"            ,0 },
+    { 0x0800, "speaker-left"        ,0 },
+    { 0x2000, "tactx"               ,0},
+    { 0x1000, "speaker-right"       ,0},
+    { 0x1800, "speaker-both"        ,0},
+    { 0x7fff, "all"        ,1 }, // 0x189 for normal, 0x1ef for ALX
+};
+
 unsigned int LightsAuroraCount = (sizeof LightsAurora
 								  / sizeof *LightsAurora);
 
@@ -168,7 +187,10 @@ AlienFxType_t AlienFxTypes[] = {
 	{ 0x187c, 0x512, "allpowerful", 100000,  /* delay not yet verified */
 	  LightsAllPowerful, sizeof LightsAllPowerful / sizeof *LightsAllPowerful },
 	{ 0x187c, 0x513, "aurora", 2500, /* ~R2 0µs; R4-ALX ≥2265µs */
-	  LightsAurora, sizeof LightsAurora / sizeof *LightsAurora }
+	  LightsAurora, sizeof LightsAurora / sizeof *LightsAurora },
+        { 0x187c, 0x528, "Alieware15", 2500, AW1517, sizeof AW1517 / sizeof *AW1517}
+
+//    { 0x187c, 0x528, "A15", 2500, LightsArea51, sizeof LightsArea51 / sizeof *LightsArea51}
 };
 int AlienFxTypesCount = sizeof AlienFxTypes / sizeof AlienFxTypes[0];
 
